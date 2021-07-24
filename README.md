@@ -133,7 +133,7 @@ class ProjectListView(APIView):
 Using Djangos rest framework and jwt we created the user authentication.
 
 ```py
-lass JWTAuthentication(BasicAuthentication):
+class JWTAuthentication(BasicAuthentication):
 
     def authenticate(self, request):
         header = request.headers.get('Authorization')
@@ -156,6 +156,111 @@ lass JWTAuthentication(BasicAuthentication):
 ```
 
 With the models, serializers and authentication complete, we created a client.http file to test our views before moving on to the front-end of the project.
+
+# Front-end
+
+## Approach
+
+For the front-end the group and I wanted to use an exisiting site for inspiration regarding the layout and basic functionality of our App. After discussing and browsing the www one of the team brought Behance to our attention which we felt was inline with what we were looking to achieve so we set about creating the custom project and profile cards. This was a task that I took upon as I was keen to expand my knowledge of flex-box and CSS/SASS in general.
+
+### UserIndex
+
+Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function we created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
+
+```js
+ React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await getAllUsers()
+        setUsers(response.data)
+        console.log(response.data)
+      } catch (error) {
+        setIsError(true)
+        console.log(error)
+      }
+    }
+    getData()
+  }, [searchTerm])
+
+```
+
+SeachTerm was then added to the dependancy array, which was passed as a prop from the search bar compoment to handle the user filtering functionality we also implemented.  
+
+```js
+  const handleInput = (e) => {
+    setSearchTerm(e.target.value)
+    console.log(e.target.value)
+  }
+```
+
+```js 
+ const filterUsers = () => {
+    return (
+      users.filter(user => {
+        return (
+          (user.username.toLowerCase().includes(searchTerm))
+        )
+      }))
+  }
+```
+
+With the data request now made and the filter function created, we then, using the map() array method populated the imported UserCard component we had created. This
+
+```js 
+ <div className="ProjectIndex-Container">
+          { users &&
+        filterUsers().map((user) => (
+
+          <UserCard
+            key={user.id}
+            userId={user.id}
+            profileImage={user.profileImage}
+            username={user.username}
+            gacohort={user.gacohort}
+            github={user.github}
+            linkedin={user.linkedin}
+            personalsite={user.personalsite}
+            twitter={user.twitter}
+            instagram={user.instagram}
+          />
+```
+
+All of the keys required form our backend models were passed as props from our userCard.
+
+```js
+function UserCard({ id, profileImage , username, gacohort, github, linkedin, instagram, personalsite, twitter, userId })
+```
+
+
+We then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile. Edit and Add project, which when the user is logged in on thier profile would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
+
+```js
+<Link to="/projects/new">
+
+              {isAuthor(user && user.id) ?
+                <button className="addProject"><FontAwesomeIcon icon={faPlus} /> Add Project</button>
+                :
+                <div />
+              }
+            </Link>
+            <Link to={`/auth/profile/${id}/edit/`}>
+              {isAuthor(user && user.id) ?
+                <button className="editProfile" ><FontAwesomeIcon icon={faEdit}/> Edit Profile
+                </button>
+                :
+                <div/>
+              }
+            </Link>
+```
+
+
+
+
+
+
+
+
+
 
 
 

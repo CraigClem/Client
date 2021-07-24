@@ -23,7 +23,7 @@ function Main() {
       }
     }
     getData()
-  },[])
+  },[projectId, projects])
 
 
   return (
