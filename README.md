@@ -190,7 +190,7 @@ Firstly, using the React.useEffect hook I made an async request to our API using
 
 ```
 
-SearchTerm was then added to the dependancy array, which was passed as a prop from the search bar compoment to handle the user filtering functionality Bradley also implemented.  
+SearchTerm was then added to the dependancy array, which was passed as a prop from the search bar compoment to handle the user filtering functionality Bradley had implemented.  
 
 ```js
   const handleInput = (e) => {
