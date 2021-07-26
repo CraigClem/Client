@@ -17,7 +17,7 @@ Build a full-stack application by making your own backend and your own front-end
 ### Front-end
 * CSS3 + SASS
 * HTML5
-* Javascript (ES6)
+* JavaScript (ES6)
 * React.js
 * Google Fonts 
 * Font Awesome
@@ -45,7 +45,7 @@ Build a full-stack application by making your own backend and your own front-end
 
 # Approach
 
-As a group we discussed various ideas that we felt would allow us to consolidate and implement the new concepts and languages we had just learned the weeks before in class. Based on a class experience where one of the tutors was showing us previous completed projects Bradley came up with the idea of creating a platform where students from the course could showcase all their projects in one place making it easier for the tutors to show a large selection of projects in place. After looking at various existing sites we started whiteboarding to plan our page layout and the database models. 
+As a group we discussed various ideas that we felt would allow us to consolidate and implement the new concepts and languages we had just learned the weeks before in class. Based on a class experience where one of the tutors was showing us previous completed projects Bradley came up with the idea of creating a platform where students from the course could showcase all their projects in one place making it easier for the tutors to show a large selection of projects in place. After looking at various existing sites we started whiteboarding to plan our page layout and the database models. Throughout the week, the Team and I had daily stand-ups to discuss our progress, allocate new tasks based on which areas needed working on and who would like to either build on their understanding of said areas or who felt most confident.
 
 ### Model Realationships
 
@@ -55,11 +55,9 @@ As a group we discussed various ideas that we felt would allow us to consolidate
 
 ### Models
 
-We began by discussing our models and whiteboading thier relationships to understand which woudl be 1:1, 1:Many and Many:Many. As we only had a week to complete the project we specifically tried to keep our models simple.
+We began by discussing our models and whiteboading thier relationships to understand which would be 1:1, 1:Many and Many:Many. As we only had a week to complete the project we specifically tried to keep our models simple.
 
-_________
-
-With the models established and realtionsips understood, we then began to code the projects models and then the serializers for working with our data in the front-end. 
+With the models established and realtionsips understood, Gursham and I then began to code the projects models and then the serializers for working with our data in the front-end.  
 
 #### User Model
 
@@ -111,7 +109,7 @@ ________
 
 ### Views 
 
-Once we had finished working on the models we then began working on the CRUD functionality by creating the views for Projects.
+Once Gursham and I had finished working on the models we then began working on the CRUD functionality by creating the views for Projects.
 
 ```py
 class ProjectListView(APIView):
@@ -134,7 +132,7 @@ class ProjectListView(APIView):
 
 ### Authentication 
 
-Using Djangos rest framework and jwt we created the user authentication.
+Using Djangos rest framework and Bradley created the user authentication which Gursham and I also helped with.
 
 ```py
 class JWTAuthentication(BasicAuthentication):
@@ -159,7 +157,7 @@ class JWTAuthentication(BasicAuthentication):
 
 ```
 
-With the models, serializers and authentication complete, we created a client.http file to test our views before moving on to the front-end of the project.
+With the models, serializers and authentication complete, I created a client.http file to test our views before moving on to the front-end of the project.
 
 # Front-end
 
@@ -173,7 +171,7 @@ For the front-end the group and I wanted to use an exisiting site for inspiratio
 
 ### UserIndex and ProjectIdex
 
-Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function we created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
+Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function I created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
 
 ```js
  React.useEffect(() => {
@@ -212,7 +210,7 @@ SeachTerm was then added to the dependancy array, which was passed as a prop fro
   }
 ```
 
-With the data request now made and the filter function created, we then, using the map() array method populated the imported UserCard component we had created. This
+With the data request now made and the filter function created, I then, using the map() array method populated the imported UserCard component I had created. This
 
 ```js 
  <div className="ProjectIndex-Container">
@@ -240,7 +238,7 @@ function UserCard({ id, profileImage , username, gacohort, github, linkedin, ins
 ```
 
 
-We then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile; Edit and Add project. Which, when the user is logged in and on thier profile page would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
+I then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile; Edit and Add project. Which, when the user is logged in and on thier profile page would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
 
 ```js
 <Link to="/projects/new">
@@ -277,18 +275,18 @@ We then created two buttons which we conditionally rendered based on the user be
 Wins
 
  - Understanding the relationships between the models and getting to grips with PostgreSQL databases.
- - Transferring my understanding of Javascript to be able to use Python.
+ - Transferring my understanding of JavaScript to be able to use Python.
  - Working in a team and finding version control much easier, mainly branching and merging on gitHub.
 
  Challenges
  
  - Initially switching from Javascript to Python to create the backend. 
- - We were struggling to display our users data on the the UserCard which was due to us using undercores in our naming of fields - this caused the an issues with stringyfying the data correctly. 
+ - We were struggling to display our users data on the the UserCard which was due to us using undercores in our naming of fields - this caused the an issues when we came to stringyfy the data correctly. 
 
  ## Lessons learned
 
-- I found that we had to revert to the backend on a number of ocassions to change to our models so for the next project I create I would spend more time whitebaording to prevent this.
-- Due to a couple of days of de-bugging and therefore the backend taking longer than we had initally hoped, there are a number of features still in complete so I would set my MVP goals to be less ambitions and so that the the final product woudld be more professional looking. 
+- I found that we had to revert to the backend on a number of ocassions to change to our models so for the next project I create I would spend more time whiteboarding to prevent this.
+- Due to a couple of days of de-bugging and therefore the backend taking longer than we had initally hoped, there are a number of features still in complete so I would set my MVP goals to be less ambitions and so that the the final product would be more professional looking. 
 - Django and Python are exceptional tools to support the development of server side projects however I am looking forward to building another full stack site to help consolidate my learning! 
 
 
