@@ -132,7 +132,7 @@ class ProjectListView(APIView):
 
 ### Authentication 
 
-Using Djangos rest framework and Bradley created the user authentication which Gursham and I also helped with.
+Using Djangos rest framework Bradley created the user authentication which Gursham and I also helped with.
 
 ```py
 class JWTAuthentication(BasicAuthentication):
@@ -171,7 +171,7 @@ For the front-end the group and I wanted to use an exisiting site for inspiratio
 
 ### UserIndex and ProjectIdex
 
-Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function I created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
+Firstly, using the React.useEffect hook I made an async request to our API using axios and the ***getAllUsers()*** function I created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
 
 ```js
  React.useEffect(() => {
@@ -190,7 +190,7 @@ Firstly, using the React.useEffect hook we made an async request to our API usin
 
 ```
 
-SeachTerm was then added to the dependancy array, which was passed as a prop from the search bar compoment to handle the user filtering functionality we also implemented.  
+SearchTerm was then added to the dependancy array, which was passed as a prop from the search bar compoment to handle the user filtering functionality Bradley also implemented.  
 
 ```js
   const handleInput = (e) => {
@@ -210,7 +210,7 @@ SeachTerm was then added to the dependancy array, which was passed as a prop fro
   }
 ```
 
-With the data request now made and the filter function created, I then, using the map() array method populated the imported UserCard component I had created. This
+With the data request now made and the filter function created, I then, using the map() array method populated the imported UserCard component I had created.
 
 ```js 
  <div className="ProjectIndex-Container">
@@ -238,7 +238,7 @@ function UserCard({ id, profileImage , username, gacohort, github, linkedin, ins
 ```
 
 
-I then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile; Edit and Add project. Which, when the user is logged in and on thier profile page would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
+I then created two buttons which I conditionally rendered based on the user being the Author/owner of the profile; Edit and Add project. Which, when the user is logged in and on their profile page would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
 
 ```js
 <Link to="/projects/new">
@@ -280,7 +280,7 @@ Wins
 
  Challenges
  
- - Initially switching from Javascript to Python to create the backend. 
+ - Initially switching from JavaScript to Python to create the backend. 
  - We were struggling to display our users data on the the UserCard which was due to us using undercores in our naming of fields - this caused the an issues when we came to stringyfy the data correctly. 
 
  ## Lessons learned
