@@ -47,6 +47,10 @@ Build a full-stack application by making your own backend and your own front-end
 
 As a group we discussed various ideas that we felt would allow us to consolidate and implement the new concepts and languages we had just learned the weeks before in class. Based on a class experience where one of the tutors was showing us previous completed projects Bradley came up with the idea of creating a platform where students from the course could showcase all their projects in one place making it easier for the tutors to show a large selection of projects in place. After looking at various existing sites we started whiteboarding to plan our page layout and the database models. 
 
+### Model Realationships
+
+<img src="images/Screenshot 2021-06-09 at 17.20.05.png"/>
+
 # Back-end 
 
 ### Models
@@ -163,6 +167,10 @@ With the models, serializers and authentication complete, we created a client.ht
 
 For the front-end the group and I wanted to use an exisiting site for inspiration regarding the layout and basic functionality of our App. After discussing and browsing the www one of the team brought Behance to our attention which we felt was inline with what we were looking to achieve so we set about creating the custom project and profile cards. This was a task that I took upon as I was keen to expand my knowledge of flex-box and CSS/SASS in general so the majority of my work was focused on the user and project cards and populating these with dynamic data.
 
+### Front-end White boading
+
+<img src="images/Screenshot 2021-06-09 at 17.20.51.png"/>
+
 ### UserIndex and ProjectIdex
 
 Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function we created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
@@ -253,7 +261,18 @@ We then created two buttons which we conditionally rendered based on the user be
             </Link>
 ```
 
-## Wins and Challenges. 
+## Project ScreenShots
+
+- Home Page
+<img src="images/ProjectExpoHome.png"/>
+
+- User Profile
+
+<img src="images/ProjectExpoUsers.png"/>
+
+
+
+## Wins and Challenges 
 
 Wins
 
