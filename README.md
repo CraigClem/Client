@@ -161,9 +161,9 @@ With the models, serializers and authentication complete, we created a client.ht
 
 ## Approach
 
-For the front-end the group and I wanted to use an exisiting site for inspiration regarding the layout and basic functionality of our App. After discussing and browsing the www one of the team brought Behance to our attention which we felt was inline with what we were looking to achieve so we set about creating the custom project and profile cards. This was a task that I took upon as I was keen to expand my knowledge of flex-box and CSS/SASS in general.
+For the front-end the group and I wanted to use an exisiting site for inspiration regarding the layout and basic functionality of our App. After discussing and browsing the www one of the team brought Behance to our attention which we felt was inline with what we were looking to achieve so we set about creating the custom project and profile cards. This was a task that I took upon as I was keen to expand my knowledge of flex-box and CSS/SASS in general so the majority of my work was focused on the user and project cards and populating these with dynamic data.
 
-### UserIndex
+### UserIndex and ProjectIdex
 
 Firstly, using the React.useEffect hook we made an async request to our API using axios and the ***getAllUsers()*** function we created in the library folder. The axios request is also wrapped in a try catch block to handle errors. 
 
@@ -225,14 +225,14 @@ With the data request now made and the filter function created, we then, using t
           />
 ```
 
-All of the keys required form our backend models were passed as props from our userCard.
+All of the keys required from our backend models were passed as props from our userCard.
 
 ```js
 function UserCard({ id, profileImage , username, gacohort, github, linkedin, instagram, personalsite, twitter, userId })
 ```
 
 
-We then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile. Edit and Add project, which when the user is logged in on thier profile would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
+We then created two buttons which we conditionally rendered based on the user being the Author/owner of the profile; Edit and Add project. Which, when the user is logged in and on thier profile page would be displayed, and if they were viewing another users profile would not be displayed. Both buttons when clicked would then Link the user to two forms to either add a new project or edit their profile details.
 
 ```js
 <Link to="/projects/new">
@@ -252,6 +252,32 @@ We then created two buttons which we conditionally rendered based on the user be
               }
             </Link>
 ```
+
+## Wins and Challenges. 
+
+Wins
+
+ - Understanding the relationships between the models and getting to grips with PostgreSQL databases.
+ - Transferring my understanding of Javascript to be able to use Python.
+ - Working in a team and finding version control much easier, mainly branching and merging on gitHub.
+
+ Challenges
+ 
+ - Initially switching from Javascript to Python to create the backend. 
+ - We were struggling to display our users data on the the UserCard which was due to us using undercores in our naming of fields - this caused the an issues with stringyfying the data correctly. 
+
+ ## Lessons learned
+
+- I found that we had to revert to the backend on a number of ocassions to change to our models so for the next project I create I would spend more time whitebaording to prevent this.
+- Due to a couple of days of de-bugging and therefore the backend taking longer than we had initally hoped, there are a number of features still in complete so I would set my MVP goals to be less ambitions and so that the the final product woudld be more professional looking. 
+- Django and Python are exceptional tools to support the development of server side projects however I am looking forward to building another full stack site to help consolidate my learning! 
+
+
+
+
+
+
+
 
 
 
